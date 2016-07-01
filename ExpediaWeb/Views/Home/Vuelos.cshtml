@@ -1,0 +1,73 @@
+﻿@model ExpediaWeb.Models.ManejarVuelos
+
+@{
+    ViewBag.Title = "Vuelos";
+}
+@section featured {
+    <section class="featured">
+        <div class="content-wrapper">
+            <hgroup class="title">
+                <h1>@ViewBag.Title.</h1>
+                <h2>@ViewBag.Message</h2>
+            </hgroup>
+            <p>
+                Te aseguramos la tarifa más baja del mercado!                
+            </p>
+        </div>
+    </section>
+}
+<h3>Tenemos 3 opciones para tí:</h3>
+<ol class="round">
+    <li class="one">
+        <h5>Sólo ida</h5>
+        @using (Html.BeginForm()) {       
+            <fieldset>
+                <div class="ruta">
+                    @Html.LabelFor(model => model.Desde)
+                    @Html.TextBoxFor(model => model.Desde)
+                </div> 
+                
+                <div class="ruta">
+                    @Html.LabelFor(model => model.Hacia)
+                    @Html.TextBoxFor(model => model.Hacia)                
+                </div>
+
+                <div class="ruta">                    
+                    <label> Fecha de Ida </label>
+                    <input class="datefield" data-val="true" data-val-required="La fecha es requerida" 
+                    id="fechaIda" name="fechaIda" type="date" value="1/1/2016" />
+                </div>
+
+                <div class="ruta">
+                    <label> Fecha de Regreso </label>
+                    <input class="datefield" data-val="true" data-val-required="La fecha es requerida" 
+                    id="fechaRegreso" name="fechaRegreso" type="date" value="1/1/2016" />
+                </div>
+
+                <div class="ruta">
+                    <label> Adultos(18+) </label>
+                    @Html.TextBoxFor(model => model.numAdulto)
+                </div>
+                <div class="ruta">
+                    <label> Niños (0 - 17) </label>
+                    @Html.TextBoxFor(model => model.numNinos)
+                </div>
+
+                <p>
+                    <input type="submit" value="Buscar vuelos" />
+                </p>
+            </fieldset>
+        }
+    </li>
+
+    <li class="two">
+        <h5>Redondo</h5>
+        NuGet makes it easy to install and update free libraries and tools.        
+    </li>
+
+    <li class="three">
+        <h5>Múltiples destinos</h5>
+        You can easily find a web hosting company that offers the right mix of features
+        and price for your applications.        
+    </li>
+</ol>
